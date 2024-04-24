@@ -53,4 +53,22 @@ total = qty * filtered_df['MSRP']
 filtered_df["Total"] = total
 filtered_df["Total"] = filtered_df["Total"].apply(lambda x: '${:,.2f}'.format(x))
 st.dataframe(filtered_df, hide_index=True, width=1300)
+
+#adding a button
+
+if st.button('Add to order'):
+
+    st.write('Adding current choice and clearing dropdowns.') #displayed when the button is clicked
+
+else:
+
+    st.write('Add') #displayed when the button is unclicked
+    
+if st.button('Finish order'):
+
+    st.write('Processing') #displayed when the button is clicked
+
+else:
+
+    st.write('Finish') #displayed when the button is unclicked
     
