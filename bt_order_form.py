@@ -37,9 +37,9 @@ with col4:
 # get upc from the values above
 # Filter the DataFrame based on the selected values
 filtered_df = df_items[
-    [(df_items['STYLE'] == style) &
+    (df_items['STYLE'] == style) &
     (df_items['COLOR'] == color) &
-    (df_items['SIZE'] == size)]
+    (df_items['SIZE'] == size)
 ]
 
 st.dataframe(filtered_df, hide_index=True)
