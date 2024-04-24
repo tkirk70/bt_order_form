@@ -29,13 +29,13 @@ df_items = df_items.applymap(lambda x: x.strip() if isinstance(x, str) else x)
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    style = st.selectbox("Style", df_items['STYLE'].unique())
+    style = st.selectbox("Style", df_items['STYLE'].unique(), placeholder="Select a style...")
     
 with col2:
-    color = st.selectbox("Color", df_items['COLOR'].unique())
+    color = st.selectbox("Color", df_items['COLOR'].unique(), placeholder="Select a color...")
     
 with col3:
-    size = st.selectbox("Size", df_items['SIZE'].unique())
+    size = st.selectbox("Size", df_items['SIZE'].unique(), placeholder="Select a size...")
     
 with col4:
     qty = st.number_input("Quantity", 1)
