@@ -61,7 +61,17 @@ df_concat = pd.concat([selected_row, filtered_df], axis=1, join='outer')
 if st.button('Add to order'):
 
     st.write('Adding current choice and clearing dropdowns.') #displayed when the button is clicked
-    df_concat.append(filtered_df, ignore_index = True)
+    # Create a new DataFrame to store the line item
+    line_item = pd.DataFrame({
+        'Style': [style],
+        'Color': [color],
+        'Size': [size],
+        'Quantity': [qty],
+        'Total': [total]
+    })
+
+   # Concatenate the line item with the existing order (if any)
+    df_concat = pd.concat([df_concat, line_item], ignore_index=True)
     
 
 else:
