@@ -64,6 +64,9 @@ else:
 
     st.write('') #displayed when the button is unclicked
     
+# shopping cart
+st.header('Current Order')
+    
 if st.button('Finish order'):
 
     st.write('Processing') #displayed when the button is clicked
@@ -72,6 +75,5 @@ else:
 
     st.write('') #displayed when the button is unclicked
     
-# shopping cart
-st.header('Current Order')
+
     
