@@ -48,6 +48,7 @@ filtered_df = df_items[
     (df_items['COLOR'] == color) &
     (df_items['SIZE'] == size)
 ]
-
+filtered_df['QTY'] = qty
+filtered_df['Total'] = filtered_df['MSRP'] * qty
 st.dataframe(filtered_df, hide_index=True, width=1300)
     
