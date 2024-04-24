@@ -5,6 +5,8 @@ import pandas as pd
 st.set_page_config(page_title=None, page_icon=None, layout="wide")
 # st.set_page_config(page_title=None, page_icon=None, layout="centered", initial_sidebar_state="auto", menu_items=None)
 
+
+
 df_cust = pd.read_csv('Bourbon Trail Customer List.csv')
 
 st.title("Bourbon Trail Order Form")
@@ -24,6 +26,7 @@ df_items = pd.read_excel('KBTPriceList 4.27.22.xlsx', sheet_name='Datasheet', dt
 # apply strip() method to all strings in DataFrame
 df_items = df_items.applymap(lambda x: x.strip() if isinstance(x, str) else x)
 df_items = df_items.drop(['COLOR/SIZE/DESCRIPT'], axis=1)
+df_new = pd.DataFrame(columns=df_items.columns)
 
 # order input dropdowns
 st.header('Current Line Item')
@@ -87,5 +90,7 @@ else:
 
     st.write('') #displayed when the button is unclicked
     
+st.write('df_new')
+st.dataframe(df_new)
 
     
