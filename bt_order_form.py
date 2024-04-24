@@ -30,13 +30,13 @@ st.header('Current Line Item')
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    style = st.selectbox("Style", df_items['STYLE'].unique(), placeholder="Select a style...")
+    style = st.selectbox("Style", df_items['STYLE'].unique(), placeholder="Select a style...", index=None)
     
 with col2:
-    color = st.selectbox("Color", df_items['COLOR'].unique(), placeholder="Select a color...")
+    color = st.selectbox("Color", df_items['COLOR'].unique(), placeholder="Select a color...", index=None)
     
 with col3:
-    size = st.selectbox("Size", df_items['SIZE'].unique(), placeholder="Select a size...")
+    size = st.selectbox("Size", df_items['SIZE'].unique(), placeholder="Select a size...", index=None)
     
 with col4:
     qty = st.number_input("Quantity", 1)
