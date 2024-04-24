@@ -66,7 +66,7 @@ df_concat = pd.concat([selected_row, filtered_df], axis=1, join='outer')
 if st.button('Add to order'):
 
     st.write('Adding current choice and clearing dropdowns.') #displayed when the button is clicked
-    new_df.append(filtered_df, ignore_index = True)
+    df_new.append(filtered_df, ignore_index = True)
     
 
 else:
