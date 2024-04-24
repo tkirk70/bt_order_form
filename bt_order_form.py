@@ -69,8 +69,8 @@ st.header('Current Order')
 st.dataframe(selected_row, hide_index=True, width=1300)
 st.dataframe(filtered_df, hide_index=True, width=1300)
 
-df_concat = pd.concat([selected_row, filtered_df], axis=0)
-st.write('Concat axis zero default join')
+df_concat = pd.concat([selected_row, filtered_df], axis=1, join='outer')
+st.write('Concat axis=1 join=outer')
 st.dataframe(df_concat, width=1300)
     
 if st.button('Finish order'):
