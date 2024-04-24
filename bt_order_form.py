@@ -23,6 +23,7 @@ st.dataframe(selected_row, hide_index=True, width=1300)
 df_items = pd.read_excel('KBTPriceList 4.27.22.xlsx', sheet_name='Datasheet', dtype={'UPC' : str})
 # apply strip() method to all strings in DataFrame
 df_items = df_items.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+df_items = df_items.drop(['COLOR/SIZE/DESCRIPT'], axis=1)
 
 # order input dropdowns
 st.header('Current Line Item')
@@ -56,12 +57,13 @@ filtered_df["Total"] = filtered_df["Total"].apply(lambda x: '${:,.2f}'.format(x)
 st.dataframe(filtered_df, hide_index=True, width=1300)
 df_concat = pd.concat([selected_row, filtered_df], axis=1, join='outer')
 
+
 #adding a button
 
 if st.button('Add to order'):
 
     st.write('Adding current choice and clearing dropdowns.') #displayed when the button is clicked
-    df_concat.append(filtered_df, ignore_index = True)
+    new_df.append(filtered_df, ignore_index = True)
     
 
 else:
