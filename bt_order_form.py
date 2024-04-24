@@ -49,6 +49,6 @@ filtered_df = df_items[
     (df_items['SIZE'] == size)
 ]
 filtered_df['QTY'] = qty
-filtered_df['Total'] = f'${filtered_df['MSRP'] * qty:.2f}'
+filtered_df['Total'] = f'${filtered_df["MSRP"] * qty:.2f}'
 st.dataframe(filtered_df, hide_index=True, width=1300)
     
