@@ -11,4 +11,7 @@ selected_cust = st.selectbox("Select a customer", df_cust['Company'])
 
 # Display product details
 st.write(f"Selected Customer: **{selected_cust}**")
-st.write(f"{df_cust[df_cust['Company']]} == {selected_cust}")
+
+# Filter the DataFrame based on the selected customer
+selected_row = df_cust[df_cust['Company'] == selected_cust]
+st.write(f"Selected Customer info: {selected_row}")
