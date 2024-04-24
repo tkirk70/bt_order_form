@@ -59,9 +59,6 @@ st.dataframe(filtered_df, hide_index=True, width=1300)
 if st.button('Add to order'):
 
     st.write('Adding current choice and clearing dropdowns.') #displayed when the button is clicked
-    i = 1
-    filtered_dfi = filtered_df
-    i += 1
 
 else:
 
@@ -70,7 +67,7 @@ else:
 # shopping cart
 st.header('Current Order')
 st.dataframe(selected_row, hide_index=True, width=1300)
-st.dataframe(filtered_dfi, hide_index=True, width=1300)
+st.dataframe(filtered_df, hide_index=True, width=1300)
 
 df_concat = pd.concat([selected_row, filtered_df], axis=0)
 st.write('Concat axis zero default join')
