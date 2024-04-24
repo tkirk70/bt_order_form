@@ -54,24 +54,14 @@ total = qty * filtered_df['MSRP']
 filtered_df["Total"] = total
 filtered_df["Total"] = filtered_df["Total"].apply(lambda x: '${:,.2f}'.format(x))
 st.dataframe(filtered_df, hide_index=True, width=1300)
-# df_concat = pd.concat([selected_row, filtered_df], axis=1, join='outer')
+df_concat = pd.concat([selected_row, filtered_df], axis=1, join='outer')
 
 #adding a button
 
 if st.button('Add to order'):
 
     st.write('Adding current choice and clearing dropdowns.') #displayed when the button is clicked
-    # Create a new DataFrame to store the line item
-    line_item = pd.DataFrame({
-        'Style': [style],
-        'Color': [color],
-        'Size': [size],
-        'Quantity': [qty],
-        'Total': [total]
-    })
-
-   # Concatenate the line item with the existing order (if any)
-    df_concat = pd.concat([df_concat, line_item], ignore_index=True)
+    df_concat.append(filtered_df, ignore_index = True)
     
 
 else:
