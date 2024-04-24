@@ -11,4 +11,4 @@ selected_cust = st.selectbox("Select a customer", df_cust['Company'])
 
 # Display product details
 st.write(f"Selected Customer: **{selected_cust}**")
-st.write(f"Info: {df[df['Company']]}")
+st.write(f"Info: {df_cust[df_cust['Company']]}")
