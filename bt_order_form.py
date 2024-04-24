@@ -27,41 +27,41 @@ df_items = pd.read_excel('KBTPriceList 4.27.22.xlsx', sheet_name='Datasheet', dt
 df_items = df_items.applymap(lambda x: x.strip() if isinstance(x, str) else x)
 df_items = df_items.drop(['COLOR/SIZE/DESCRIPT'], axis=1)
 
-while True:
-    # order input dropdowns
-    st.header('Current Line Item')
 
-    col1, col2, col3, col4 = st.columns(4)
+# order input dropdowns
+st.header('Current Line Item')
 
-    with col1:
-        style = st.selectbox("Style", df_items['STYLE'].unique(), placeholder="Select a style...", index=None)
-        
-    with col2:
-        color = st.selectbox("Color", df_items['COLOR'].unique(), placeholder="Select a color...", index=None)
-        
-    with col3:
-        size = st.selectbox("Size", df_items['SIZE'].unique(), placeholder="Select a size...", index=None)
-        
-    with col4:
-        qty = st.number_input("Quantity", 1)
-        
-    # get upc from the values above
-    # Filter the DataFrame based on the selected values
+col1, col2, col3, col4 = st.columns(4)
 
-    filtered_df = df_items[
-        (df_items['STYLE'] == style) &
-        (df_items['COLOR'] == color) &
-        (df_items['SIZE'] == size)
-    ]
-    filtered_df['QTY'] = qty
-    total = qty * filtered_df['MSRP']
-    filtered_df["Total"] = total
-    filtered_df["Total"] = filtered_df["Total"].apply(lambda x: '${:,.2f}'.format(x))
-    st.dataframe(filtered_df, hide_index=True, width=1300)
-    df_concat = pd.concat([selected_row, filtered_df], axis=1, join='outer')
-    df_new = pd.DataFrame(columns=filtered_df.columns)
+with col1:
+    style = st.selectbox("Style", df_items['STYLE'].unique(), placeholder="Select a style...", index=None)
+    
+with col2:
+    color = st.selectbox("Color", df_items['COLOR'].unique(), placeholder="Select a color...", index=None)
+    
+with col3:
+    size = st.selectbox("Size", df_items['SIZE'].unique(), placeholder="Select a size...", index=None)
+    
+with col4:
+    qty = st.number_input("Quantity", 1)
+    
+# get upc from the values above
+# Filter the DataFrame based on the selected values
 
+filtered_df = df_items[
+    (df_items['STYLE'] == style) &
+    (df_items['COLOR'] == color) &
+    (df_items['SIZE'] == size)
+]
+filtered_df['QTY'] = qty
+total = qty * filtered_df['MSRP']
+filtered_df["Total"] = total
+filtered_df["Total"] = filtered_df["Total"].apply(lambda x: '${:,.2f}'.format(x))
+st.dataframe(filtered_df, hide_index=True, width=1300)
+df_concat = pd.concat([selected_row, filtered_df], axis=1, join='outer')
+df_new = pd.DataFrame(columns=filtered_df.columns)
 
+if df_new:
     #adding a button
 
     if st.button('Add to order'):
