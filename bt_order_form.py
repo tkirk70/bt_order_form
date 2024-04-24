@@ -50,6 +50,7 @@ filtered_df = df_items[
 ]
 filtered_df['QTY'] = qty
 total = qty * filtered_df['MSRP']
-filtered_df["Total"] = f'{total:,.2f}'
+filtered_df["Total"] = total
+filtered_df["Total"] = filtered_df["Total"].apply(lambda x: '${:,.2f}'.format(x))
 st.dataframe(filtered_df, hide_index=True, width=1300)
     
