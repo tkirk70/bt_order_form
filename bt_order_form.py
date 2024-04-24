@@ -72,3 +72,6 @@ else:
 
     st.write('') #displayed when the button is unclicked
     
+# shopping cart
+st.header('Current Order')
+    
