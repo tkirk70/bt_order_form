@@ -23,13 +23,13 @@ df_items = pd.read_excel('KBTPriceList 4.27.22.xlsx', sheet_name='Datasheet')
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    style = st.text_input("Style", df_items['STYLE'])
+    style = st.selectbox("Style", df_items['STYLE'])
     
 with col2:
-    color = st.text_input("Color", df_items['COLOR'])
+    color = st.selectbox("Color", df_items['COLOR'])
     
 with col3:
-    size = st.text_input("Size", df_items['SIZE'])
+    size = st.selectbox("Size", df_items['SIZE'])
     
 with col4:
     size = st.number_input("Quantity", 1)
