@@ -25,6 +25,7 @@ df_items = pd.read_excel('KBTPriceList 4.27.22.xlsx', sheet_name='Datasheet', dt
 df_items = df_items.applymap(lambda x: x.strip() if isinstance(x, str) else x)
 
 # order input dropdowns
+st.header('Current Line Item')
 
 col1, col2, col3, col4 = st.columns(4)
 
