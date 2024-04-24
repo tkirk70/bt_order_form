@@ -67,7 +67,7 @@ df_new = pd.DataFrame(columns=filtered_df.columns)
 if st.button('Add to order'):
 
     st.write('Adding current choice and clearing dropdowns.') #displayed when the button is clicked
-    df_new.append(filtered_df, ignore_index = True)
+    df_new.append(filtered_df)
     
 
 else:
