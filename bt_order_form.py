@@ -26,7 +26,7 @@ df_items = pd.read_excel('KBTPriceList 4.27.22.xlsx', sheet_name='Datasheet', dt
 # apply strip() method to all strings in DataFrame
 df_items = df_items.applymap(lambda x: x.strip() if isinstance(x, str) else x)
 df_items = df_items.drop(['COLOR/SIZE/DESCRIPT'], axis=1)
-df_new = pd.DataFrame(columns=df_items.columns)
+
 
 # order input dropdowns
 st.header('Current Line Item')
@@ -59,6 +59,7 @@ filtered_df["Total"] = total
 filtered_df["Total"] = filtered_df["Total"].apply(lambda x: '${:,.2f}'.format(x))
 st.dataframe(filtered_df, hide_index=True, width=1300)
 df_concat = pd.concat([selected_row, filtered_df], axis=1, join='outer')
+df_new = pd.DataFrame(columns=df_items.columns)
 
 
 #adding a button
