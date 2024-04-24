@@ -46,6 +46,6 @@ filtered_df = df_items[
     (df_items['COLOR'] == color) &
     (df_items['SIZE'] == size)
 ]
-selected_upc = df_items[filtered_df['UPC']]
-st.dataframe(selected_upc, hide_index=True)
+
+st.dataframe(filtered_df, hide_index=True)
     
