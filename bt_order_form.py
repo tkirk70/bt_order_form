@@ -17,7 +17,7 @@ st.dataframe(selected_row, hide_index=True)
 
 # order input dropdowns
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     style = st.text_input("Style", 'KBT7011')
@@ -27,4 +27,7 @@ with col2:
     
 with col3:
     size = st.text_input("Size", 'ONESIZE')
+    
+with col4:
+    size = st.number_input("Quantity", 1)
     
