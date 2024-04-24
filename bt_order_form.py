@@ -49,5 +49,5 @@ filtered_df = df_items[
     (df_items['SIZE'] == size)
 ]
 st.write(style, color, size)
-st.dataframe(filtered_df, hide_index=True)
+st.dataframe(filtered_df, hide_index=True, width=1300)
     
