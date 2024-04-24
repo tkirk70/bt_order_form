@@ -62,7 +62,7 @@ if st.button('Add to order'):
 
 else:
 
-    st.write('Add') #displayed when the button is unclicked
+    st.write('') #displayed when the button is unclicked
     
 if st.button('Finish order'):
 
@@ -70,5 +70,5 @@ if st.button('Finish order'):
 
 else:
 
-    st.write('Finish') #displayed when the button is unclicked
+    st.write('') #displayed when the button is unclicked
     
