@@ -20,7 +20,7 @@ selected_row = df_cust[df_cust['Company'] == selected_cust]
 st.dataframe(selected_row, hide_index=True, width=1300)
 
 # read the items database
-df_items = pd.read_excel('KBTPriceList 4.27.22.xlsx', sheet_name='Datasheet', dtype=('UPC' : str)
+df_items = pd.read_excel('KBTPriceList 4.27.22.xlsx', sheet_name='Datasheet', dtype={'UPC' : str})
 # apply strip() method to all strings in DataFrame
 df_items = df_items.applymap(lambda x: x.strip() if isinstance(x, str) else x)
 
