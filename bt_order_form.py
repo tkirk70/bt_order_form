@@ -15,18 +15,21 @@ st.write(f"Selected Customer: **{selected_cust}**")
 selected_row = df_cust[df_cust['Company'] == selected_cust]
 st.dataframe(selected_row, hide_index=True)
 
+# read the items database
+df_items = pd.read_excel('KBTPriceList 4.27.22.xlsx', sheet_name='Datasheet')
+
 # order input dropdowns
 
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    style = st.text_input("Style", 'KBT7011')
+    style = st.text_input("Style", df_items['STYLE'])
     
 with col2:
-    color = st.text_input("Color", 'NONE')
+    color = st.text_input("Color", df_items['COLOR'])
     
 with col3:
-    size = st.text_input("Size", 'ONESIZE')
+    size = st.text_input("Size", df_items['SIZE'])
     
 with col4:
     size = st.number_input("Quantity", 1)
