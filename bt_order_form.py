@@ -38,7 +38,7 @@ with col3:
     size = st.selectbox("Size", df_items['SIZE'].unique())
     
 with col4:
-    size = st.number_input("Quantity", 1)
+    qty = st.number_input("Quantity", 1)
     
 # get upc from the values above
 # Filter the DataFrame based on the selected values
