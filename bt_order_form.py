@@ -66,6 +66,8 @@ else:
     
 # shopping cart
 st.header('Current Order')
+st.dataframe(selected_row, hide_index=True, width=1300)
+st.dataframe(filtered_df, hide_index=True, width=1300)
     
 if st.button('Finish order'):
 
