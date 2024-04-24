@@ -48,6 +48,6 @@ filtered_df = df_items[
     (df_items['COLOR'] == color) &
     (df_items['SIZE'] == size)
 ]
-st.write(filtered_df.info())
+st.write(df_items.info())
 st.dataframe(filtered_df, hide_index=True)
     
