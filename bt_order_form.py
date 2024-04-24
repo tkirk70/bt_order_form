@@ -29,7 +29,7 @@ df_items = df_items.applymap(lambda x: x.strip() if isinstance(x, str) else x)
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    style = st.selectbox("Style", df_items['STYLE'].unique(), placeholder="Select a style...")
+    style = st.selectbox("Style", df_items['STYLE'].unique(), placeholder="Select a style...", index="Select a style...")
     
 with col2:
     color = st.selectbox("Color", df_items['COLOR'].unique(), placeholder="Select a color...")
