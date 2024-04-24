@@ -60,6 +60,7 @@ st.dataframe(filtered_df, hide_index=True, width=1300)
 if st.button('Add to order'):
 
     st.write('Adding current choice and clearing dropdowns.') #displayed when the button is clicked
+    
 
 else:
 
