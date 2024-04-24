@@ -21,6 +21,8 @@ st.dataframe(selected_row, hide_index=True)
 
 # read the items database
 df_items = pd.read_excel('KBTPriceList 4.27.22.xlsx', sheet_name='Datasheet')
+# apply strip() method to all strings in DataFrame
+df_items = df_items.applymap(lambda x: x.strip() if isinstance(x, str) else x)
 
 # order input dropdowns
 
