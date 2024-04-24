@@ -48,6 +48,6 @@ filtered_df = df_items[
     (df_items['COLOR'] == color) &
     (df_items['SIZE'] == size)
 ]
-
+filtered_df
 st.dataframe(filtered_df, hide_index=True)
     
