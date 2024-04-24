@@ -40,14 +40,12 @@ with col4:
     
 # get upc from the values above
 # Filter the DataFrame based on the selected values
-col5 = st.columns(1)
 
-with col5:
-    filtered_df = df_items[
+filtered_df = df_items[
     (df_items['STYLE'] == style) &
     (df_items['COLOR'] == color) &
     (df_items['SIZE'] == size)
 ]
-    selected_upc = filtered_df[filtered_df['UPC']]
-    st.dataframe(selected_upc, hide_index=True)
+selected_upc = filtered_df[filtered_df['UPC']]
+st.dataframe(selected_upc, hide_index=True)
     
