@@ -61,37 +61,37 @@ st.dataframe(filtered_df, hide_index=True, width=1300)
 df_concat = pd.concat([selected_row, filtered_df], axis=1, join='outer')
 df_new = pd.DataFrame(columns=filtered_df.columns)
 
-if df_new:
-    #adding a button
 
-    if st.button('Add to order'):
+#adding a button
 
-        st.write('Adding current choice and clearing dropdowns.') #displayed when the button is clicked
-        df_new = df_new.append(filtered_df, ignore_index=True)
-        
+if st.button('Add to order'):
 
-    else:
+    st.write('Adding current choice and clearing dropdowns.') #displayed when the button is clicked
+    df_new = df_new.append(filtered_df, ignore_index=True)
+    
 
-        st.write('') #displayed when the button is unclicked
-        
-    # shopping cart
-    st.header('Current Order')
-    st.dataframe(selected_row, hide_index=True, width=1300)
-    st.dataframe(filtered_df, hide_index=True, width=1300)
+else:
+
+    st.write('') #displayed when the button is unclicked
+    
+# shopping cart
+st.header('Current Order')
+st.dataframe(selected_row, hide_index=True, width=1300)
+st.dataframe(filtered_df, hide_index=True, width=1300)
 
 
-    st.write('Concat axis=1 join=outer')
-    st.dataframe(df_concat, width=1300)
-        
-    if st.button('Finish order'):
+st.write('Concat axis=1 join=outer')
+st.dataframe(df_concat, width=1300)
+    
+if st.button('Finish order'):
 
-        st.write('Processing') #displayed when the button is clicked
+    st.write('Processing') #displayed when the button is clicked
 
-    else:
+else:
 
-        st.write('') #displayed when the button is unclicked
-        
-    st.write('df_new')
-    st.dataframe(df_new)
+    st.write('') #displayed when the button is unclicked
+    
+st.write('df_new')
+st.dataframe(df_new)
 
-        
+    
