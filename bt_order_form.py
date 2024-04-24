@@ -58,7 +58,7 @@ total = qty * filtered_df['MSRP']
 filtered_df["Total"] = total
 filtered_df["Total"] = filtered_df["Total"].apply(lambda x: '${:,.2f}'.format(x))
 st.dataframe(filtered_df, hide_index=True, width=1300)
-df_concat = pd.concat([selected_row, filtered_df], axis=1, join='outer')
+df_concat = pd.concat([selected_row, filtered_df], axis=1, join='outer', ignore_index=True)
 df_new = pd.DataFrame(columns=filtered_df.columns)
 
 
