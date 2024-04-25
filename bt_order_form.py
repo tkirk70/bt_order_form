@@ -108,4 +108,4 @@ if st.button("Add row"):
 if st.button('Clear Order'):
     df = df[0:0]
 
-st.write(pd.DataFrame(get_data(df)))
+st.write(pd.DataFrame(get_data()))
