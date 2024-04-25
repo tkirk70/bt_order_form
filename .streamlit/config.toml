@@ -5,8 +5,8 @@ primaryColor="#F63366"
 # backgroundColor="#2E899B" # teal
 # backgroundColor="#9797A0" # light gray
 backgroundColor='#ED5E11' # bourbon orange
-# secondaryBackgroundColor="#F0F2F6"
-secondaryBackgroundColor="#d8d9dd" # lighter gray
+secondaryBackgroundColor="#F0F2F6"
+# secondaryBackgroundColor="#d8d9dd" # lighter gray
 textColor="#262730"
 font="sans serif"
 
