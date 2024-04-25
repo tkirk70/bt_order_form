@@ -106,6 +106,6 @@ if st.button("Add row"):
     df = get_data().append({"UserID": user_id, "foo": foo, "bar": bar})
     
 if st.button('Clear Order'):
-    df = df[0:0]
+    df = pd.DataFrame(None)
 
 st.write(pd.DataFrame(get_data()))
