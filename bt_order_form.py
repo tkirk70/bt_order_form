@@ -104,7 +104,7 @@ bar = st.slider("bar", 0, 100)
 
 if st.button("Add Line Item"):
     get_data().append({'STYLE' : style, 'COLOR': color, 'SIZE' : size, 'DESCRIPT' : filtered_df['DESCRIPT'], 'UPC' :filtered_df['UPC'],
-                       'QTY' : qty, 'Total' : filtered_df['total']})
+                       'QTY' : qty, 'Total' : filtered_df['Total']})
     
 if st.button('Clear Order'):
     # Clear the input box after hitting enter
