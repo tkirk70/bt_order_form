@@ -102,11 +102,15 @@ user_id = st.text_input("User ID")
 foo = st.slider("foo", 0, 100)
 bar = st.slider("bar", 0, 100)
 
-if st.button("Add row"):
-    get_data().append({"UserID": user_id, "foo": foo, "bar": bar})
+if st.button("Add Line Item"):
+    get_data().append(filtered_df)
     
 if st.button('Clear Order'):
     # Clear the input box after hitting enter
     get_data().clear()
 
 st.write(pd.DataFrame(get_data()))
+
+if st.button('Submit Order'):
+    pass
+    # Write code to convert df to downloadable excel file.
