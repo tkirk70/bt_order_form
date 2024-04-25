@@ -87,9 +87,12 @@ if st.button('Clear Order'):
 
 st.write(pd.DataFrame(get_data()))
 submit_df = pd.DataFrame(get_data())
+# concatenate dataframes along the columns
+result = pd.concat([selected_row, submit_df], axis=1, join='outer')
+
 if st.button('Submit Order'):
     # Create a downloadable link for the DataFrame as an Excel file
-    csv = submit_df.to_csv(index=False)
+    csv = result.to_csv(index=False)
     b64 = base64.b64encode(csv.encode()).decode()
     href = f'<a href="data:file/csv;base64,{b64}" download="order_details.csv">Download Order Form</a>'
     st.markdown(href, unsafe_allow_html=True)
