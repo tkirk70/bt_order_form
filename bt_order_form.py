@@ -59,7 +59,7 @@ filtered_df["Total"] = total
 filtered_df["Total"] = filtered_df["Total"].apply(lambda x: '${:,.2f}'.format(x))
 upc = filtered_df['UPC']
 descript = filtered_df['DESCRIPT']
-total1 = filtered_df["Total"] = filtered_df["Total"].apply(lambda x: '${:,.2f}'.format(x))
+total1 = filtered_df["Total"] = filtered_df["Total"]
 st.dataframe(filtered_df, hide_index=True, width=1300)
 df_concat = pd.concat([selected_row, filtered_df], axis=1, join='outer', ignore_index=True)
 df_new = pd.DataFrame(columns=filtered_df.columns)
