@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import base64
 
 # set layout
 st.set_page_config(page_title=None, page_icon=None, layout="wide")
@@ -82,7 +83,11 @@ if st.button('Clear Order'):
     get_data().clear()
 
 st.write(pd.DataFrame(get_data()))
-
+submit_df = pd.DataFrame(get_data())
 if st.button('Submit Order'):
-    pass
+    # Create a downloadable link for the DataFrame as an Excel file
+    csv = submit_df.to_csv(index=False)
+    b64 = base64.b64encode(csv.encode()).decode()
+    href = f'<a href="data:file/csv;base64,{b64}" download="order_details.csv">Download Order Form</a>'
+    st.markdown(href, unsafe_allow_html=True)
     # Write code to convert df to downloadable excel file.
