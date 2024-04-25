@@ -9,7 +9,7 @@ st.set_page_config(page_title=None, page_icon=None, layout="wide")
 
 
 df_cust = pd.read_csv('Bourbon Trail Customer List.csv')
-col_left, col_right = st.beta_columns([3,1])
+col_left, col_right = st.columns([3,1])
 with col_left:
      st.title("Bourbon Trail Order Form")
 with col_right:
