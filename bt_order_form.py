@@ -11,6 +11,7 @@ st.set_page_config(page_title=None, page_icon=None, layout="wide")
 df_cust = pd.read_csv('Bourbon Trail Customer List.csv')
 
 st.title("Bourbon Trail Order Form")
+st.image('bt.jpg')
 
 # Dropdown for product selection
 selected_cust = st.selectbox("Select a customer", df_cust['Company'])
