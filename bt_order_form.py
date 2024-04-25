@@ -69,17 +69,6 @@ st.header('Current Order')
 st.dataframe(selected_row, hide_index=True, width=1300)
 st.dataframe(filtered_df, hide_index=True, width=1300)
     
-if st.button('Finish order'):
-
-    st.write('Processing') #displayed when the button is clicked
-
-else:
-
-    st.write('') #displayed when the button is unclicked
-    
-st.write('df_new')
-st.dataframe(df_new)
-
 @st.cache(allow_output_mutation=True)
 def get_data():
     return []
