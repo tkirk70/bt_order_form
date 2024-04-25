@@ -103,9 +103,9 @@ foo = st.slider("foo", 0, 100)
 bar = st.slider("bar", 0, 100)
 
 if st.button("Add row"):
-    get_data().append({"UserID": user_id, "foo": foo, "bar": bar})
+    df = get_data().append({"UserID": user_id, "foo": foo, "bar": bar})
     
 if st.button('Clear Order'):
-    st.write(pd.DataFrame())
+    df = df[0:0]
 
-st.write(pd.DataFrame(get_data()))
+st.write(pd.DataFrame(df))
