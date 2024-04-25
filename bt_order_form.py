@@ -63,28 +63,11 @@ total1 = filtered_df["Total"] = filtered_df["Total"]
 st.dataframe(filtered_df, hide_index=True, width=1300)
 df_concat = pd.concat([selected_row, filtered_df], axis=1, join='outer', ignore_index=True)
 df_new = pd.DataFrame(columns=filtered_df.columns)
-
-
-#adding a button
-
-if st.button('Add to order'):
-
-    st.write('Adding current choice and clearing dropdowns.') #displayed when the button is clicked
-    df_new = df_new.append(filtered_df, ignore_index=True)
-    
-
-else:
-
-    st.write('') #displayed when the button is unclicked
     
 # shopping cart
 st.header('Current Order')
 st.dataframe(selected_row, hide_index=True, width=1300)
 st.dataframe(filtered_df, hide_index=True, width=1300)
-
-
-st.write('Concat axis=1 join=outer')
-st.dataframe(df_concat, width=1300)
     
 if st.button('Finish order'):
 
@@ -106,8 +89,8 @@ foo = st.slider("foo", 0, 100)
 bar = st.slider("bar", 0, 100)
 
 if st.button("Add Line Item"):
-    get_data().append({'STYLE' : style, 'COLOR': color, 'SIZE' : size, 'DESCRIPT' : descript[1], 'UPC' : upc[1],
-                       'QTY' : qty, 'TOTAL' : total1[1]})
+    get_data().append({'STYLE' : style, 'COLOR': color, 'SIZE' : size, 'DESCRIPT' : descript, 'UPC' : upc,
+                       'QTY' : qty, 'TOTAL' : total1})
     
 if st.button('Clear Order'):
     # Clear the input box after hitting enter
