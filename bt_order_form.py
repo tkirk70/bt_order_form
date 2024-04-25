@@ -103,9 +103,10 @@ foo = st.slider("foo", 0, 100)
 bar = st.slider("bar", 0, 100)
 
 if st.button("Add row"):
-    df = get_data().append({"UserID": user_id, "foo": foo, "bar": bar})
+    get_data().append({"UserID": user_id, "foo": foo, "bar": bar})
     
 if st.button('Clear Order'):
-    df = pd.DataFrame(None)
+    # Clear the input box after hitting enter
+    st.session_state["get_data"] = ""
 
 st.write(pd.DataFrame(get_data()))
