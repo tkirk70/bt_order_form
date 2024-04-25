@@ -107,6 +107,6 @@ if st.button("Add row"):
     
 if st.button('Clear Order'):
     # Clear the input box after hitting enter
-    pass
+    get_data().clear()
 
 st.write(pd.DataFrame(get_data()))
