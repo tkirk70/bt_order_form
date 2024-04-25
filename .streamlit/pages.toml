@@ -1,0 +1,14 @@
+[[pages]]
+path = "Shipping_Tool.py"
+name = "Home"
+icon = ":house:"
+
+# [[pages]]
+# path = "pages/Page_2.py"
+# name = "Page 2"
+# icon = "🚧"
+
+# [[pages]]
+# path = "pages/Page_3.py"
+# name = "Page 3"
+# icon = ":books:"

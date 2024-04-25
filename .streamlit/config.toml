@@ -1,0 +1,41 @@
+[theme]
+# base="light"
+primaryColor="#F63366"
+# backgroundColor="#FFFFFF" # white
+# backgroundColor="#2E899B" # teal
+# backgroundColor="#9797A0" # light gray
+backgroundColor='#ED5E11'
+# secondaryBackgroundColor="#F0F2F6"
+secondaryBackgroundColor="#d8d9dd" # lighter gray
+textColor="#262730"
+font="sans serif"
+
+# The preset Streamlit theme that your custom theme inherits from.
+# One of "light" or "dark".
+# base =
+
+# Primary accent color for interactive elements.
+# primaryColor =
+
+# Background color for the main content area.
+# backgroundColor =
+
+# Background color used for the sidebar and most interactive widgets.
+# secondaryBackgroundColor =
+
+# Color used for almost all text.
+# textColor =
+
+# Font family for all text in the app, except code blocks. One of "sans serif",
+# "serif", or "monospace".
+# font =
+
+# [[pages]]
+# path = "shipping_tool_attempt_feb22.py"
+# name = "Home"
+# icon = "🏠"
+
+# [[pages]]
+# path = "page2.py"
+# name = "Page 2"
+# icon = ":dog:"
