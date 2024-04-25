@@ -106,8 +106,8 @@ foo = st.slider("foo", 0, 100)
 bar = st.slider("bar", 0, 100)
 
 if st.button("Add Line Item"):
-    get_data().append({'STYLE' : style, 'COLOR': color, 'SIZE' : size, 'DESCRIPT' : descript, 'UPC' : upc,
-                       'QTY' : qty, 'TOTAL' : total1})
+    get_data().append({'STYLE' : style, 'COLOR': color, 'SIZE' : size, 'DESCRIPT' : descript[1], 'UPC' : upc[1],
+                       'QTY' : qty, 'TOTAL' : total1[1]})
     
 if st.button('Clear Order'):
     # Clear the input box after hitting enter
