@@ -94,20 +94,15 @@ else:
 st.write('df_new')
 st.dataframe(df_new)
 
+@st.cache(allow_output_mutation=True)
+def get_data():
+    return []
 
-with st.form('Feedback_Form'):
-    st.header('Feedback Form')
+user_id = st.text_input("User ID")
+foo = st.slider("foo", 0, 100)
+bar = st.slider("bar", 0, 100)
 
-    col1, col2 = st.columns(2)
-    with col1:
-        name = st.text_input('Enter product name')
-        How_Many = st.slider('Please Select Quantity',0,10,5)
-    with col2:
-        Date = st.date_input('Enter Date')
-        Time = st.radio('Select time to nearest label time', ('7.30', '7.45', '8.00', '8.10', '8.15'))
+if st.button("Add row"):
+    get_data().append({"UserID": user_id, "foo": foo, "bar": bar})
 
-    submit_button = st.form_submit_button('Submit')
-
-if st.form_submit_button:
-    st.write('**Enter product name:**', name, '**Enter Date:**', Date,
-             '**How Many:**', How_Many)  
+st.write(pd.DataFrame(get_data()))
