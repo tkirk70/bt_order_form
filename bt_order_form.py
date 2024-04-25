@@ -84,10 +84,6 @@ st.dataframe(df_new)
 def get_data():
     return []
 
-user_id = st.text_input("User ID")
-foo = st.slider("foo", 0, 100)
-bar = st.slider("bar", 0, 100)
-
 if st.button("Add Line Item"):
     get_data().append({'STYLE' : style, 'COLOR': color, 'SIZE' : size, 'DESCRIPT' : descript, 'UPC' : upc,
                        'QTY' : qty, 'TOTAL' : total1})
