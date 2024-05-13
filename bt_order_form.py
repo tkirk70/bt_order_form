@@ -55,16 +55,16 @@ with col4:
 col5, col6, col7, col8 = st.columns(4)
 
 with col5:
-    ht = st.selectbox('Hang Tags', (True, False))
+    ht = st.selectbox('Hang Tags', (False, True))
     
 with col6:
-    cb = st.selectbox('Co-Branding', (True, False))
+    cb = st.selectbox('Co-Branding', (False, True))
     
 with col7:
-    fl = st.selectbox('Folding', (True, False))
+    fl = st.selectbox('Folding', (False, True))
     
 with col8:
-    nl = st.selectbox('Neck Labels', (True, False))
+    nl = st.selectbox('Neck Labels', (False, True))
  
 notes = st.text_input('Notes', value='')   
     
