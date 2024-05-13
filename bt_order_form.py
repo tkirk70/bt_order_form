@@ -74,11 +74,11 @@ notes = st.text_input('Notes', value='')
 # get upc from the values above
 # Filter the DataFrame based on the selected values
 
-filtered_df = df_items[[
+filtered_df = df_items[
     (df_items['STYLE'] == style) &
     (df_items['COLOR'] == color) &
     (df_items['SIZE'] == size)
-]]
+]
 filtered_df['QTY'] = qty
 total = qty * filtered_df['MSRP']
 filtered_df["Total"] = total
