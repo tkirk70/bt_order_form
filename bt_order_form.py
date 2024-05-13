@@ -112,7 +112,7 @@ def get_data():
 
 if st.button("Add Line Item"):
     get_data().append({'STYLE' : style, 'COLOR': color, 'SIZE' : size, 'DESCRIPT' : filtered_df['DESCRIPT'], 'UPC' : filtered_df['UPC'],
-                       'QTY' : qty, 'TOTAL' : filtered_df['Total'], 'HangTags' : ht, 'CoBrand' : cb, 'Folding' :fl, 'NeckLabels' : nl, 'Notes' : notes})
+                       'QTY' : qty, 'TOTAL' : total, 'HangTags' : ht, 'CoBrand' : cb, 'Folding' :fl, 'NeckLabels' : nl, 'Notes' : notes})
     
 if st.button('Clear Order'):
     # Clear the input box after hitting enter
