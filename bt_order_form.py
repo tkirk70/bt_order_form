@@ -67,7 +67,7 @@ with col8:
 col9 = st.columns(1)
  
 with col9:
-    notes = st.text_input('Notes')   
+    notes = st.text_input('Notes', value='')   
     
 # get upc from the values above
 # Filter the DataFrame based on the selected values
