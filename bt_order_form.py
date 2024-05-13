@@ -1,13 +1,12 @@
 import streamlit as st
 import pandas as pd
 import base64
-from datetime import date, datetime
+import datetime
 
-today = date.today()
+now = datetime.datetime.now()
+formatted_time = now.strftime("%Y%m%d%H%M%S")
+# print(formatted_time)
 
-# get the current date and time
-now = datetime.now()
-# now = now.strftime("%Y%m%d%H%M%D")
 
 # set layout
 st.set_page_config(page_title=None, page_icon=None, layout="wide")
@@ -123,6 +122,6 @@ if st.button('Submit Order'):
     # Create a downloadable link for the DataFrame as an Excel file
     csv = result.to_csv(index=False)
     b64 = base64.b64encode(csv.encode()).decode()
-    href = f'<a href="data:file/csv;base64,{b64}" download="order_details_{now}.csv">Download Order Form</a>'
+    href = f'<a href="data:file/csv;base64,{b64}" download="order_details_{formatted_time}.csv">Download Order Form</a>'
     st.markdown(href, unsafe_allow_html=True)
     # Write code to convert df to downloadable excel file.
