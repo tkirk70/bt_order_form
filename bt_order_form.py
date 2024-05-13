@@ -101,7 +101,7 @@ def get_data():
 
 if st.button("Add Line Item"):
     get_data().append({'STYLE' : style, 'COLOR': color, 'SIZE' : size, 'DESCRIPT' : descript, 'UPC' : upc,
-                       'QTY' : qty, 'TOTAL' : total1})
+                       'QTY' : qty, 'TOTAL' : total1, 'HangTags' : ht, 'CoBrand' : cb, 'Folding' :fl, 'NeckLabels' : nl, 'Notes' : notes})
     
 if st.button('Clear Order'):
     # Clear the input box after hitting enter
