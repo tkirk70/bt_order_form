@@ -119,6 +119,6 @@ if st.button('Submit Order'):
     # Create a downloadable link for the DataFrame as an Excel file
     csv = result.to_csv(index=False)
     b64 = base64.b64encode(csv.encode()).decode()
-    href = f'<a href="data:file/csv;base64,{b64}" download=f"order_details_{today}.csv">Download Order Form</a>'
+    href = f'<a href="data:file/csv;base64,{b64}" download="order_details_{today}.csv">Download Order Form</a>'
     st.markdown(href, unsafe_allow_html=True)
     # Write code to convert df to downloadable excel file.
