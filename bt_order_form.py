@@ -6,7 +6,7 @@ from datetime import date, datetime
 today = date.today()
 
 # get the current date and time
-now = datetime.datetime.now()
+now = datetime.now()
 now = now.strftime("%Y%m%\d%H%M%D")
 
 # set layout
