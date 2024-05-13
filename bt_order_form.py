@@ -73,7 +73,6 @@ notes = st.text_input('Notes', value='')
     
 # get upc from the values above
 # Filter the DataFrame based on the selected values
-
 filtered_df = df_items[
     (df_items['STYLE'] == style) &
     (df_items['COLOR'] == color) &
@@ -83,16 +82,19 @@ filtered_df['QTY'] = qty
 total = qty * filtered_df['MSRP']
 filtered_df["Total"] = total
 filtered_df["Total"] = filtered_df["Total"].apply(lambda x: '${:,.2f}'.format(x))
-upc = filtered_df['UPC'].values
-descript = filtered_df['DESCRIPT'].values
-total1 = filtered_df["Total"] = filtered_df["Total"].values
 filtered_df['HangTags'] = ht
 filtered_df['CoBrand'] = cb
 filtered_df['Folding'] = fl
 filtered_df['NeckLabels'] = nl
 filtered_df['Notes'] = notes
 
+# Assign the filtered values directly to the columns
+filtered_df['UPC'] = filtered_df['UPC']
+filtered_df['DESCRIPT'] = filtered_df['DESCRIPT']
+filtered_df['Total'] = filtered_df['Total']
+
 st.dataframe(filtered_df, hide_index=True, width=1300)
+
 df_concat = pd.concat([selected_row, filtered_df], axis=1, join='outer', ignore_index=True)
 df_new = pd.DataFrame(columns=filtered_df.columns)
     
