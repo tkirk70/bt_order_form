@@ -83,9 +83,9 @@ filtered_df['QTY'] = qty
 total = qty * filtered_df['MSRP']
 filtered_df["Total"] = total
 filtered_df["Total"] = filtered_df["Total"].apply(lambda x: '${:,.2f}'.format(x))
-upc = filtered_df['UPC'].values
-descript = filtered_df['DESCRIPT'].values
-total1 = filtered_df["Total"] = filtered_df["Total"].values
+upc = filtered_df['UPC'].str[0]
+descript = filtered_df['DESCRIPT'].str[0]
+total1 = filtered_df["Total"] = filtered_df["Total"].str[0]
 filtered_df['HangTags'] = ht
 filtered_df['CoBrand'] = cb
 filtered_df['Folding'] = fl
