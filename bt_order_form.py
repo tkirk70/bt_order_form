@@ -49,6 +49,26 @@ with col3:
 with col4:
     qty = st.number_input("Quantity", 1)
     
+col5, col6, col7, col8 = st.columns(4)
+
+with col5:
+    ht = st.selectbox('Hang Tags', (True, False))
+    
+with col6:
+    cb = st.selectbox('Co-Branding', (True, False))
+    
+with col7:
+    fl = st.selectbox('Folding', (True, False))
+    
+with col8:
+    nl = st.selectbox('Neck Labels', (True, False))
+ 
+ 
+col9 = st.columns(1)
+ 
+with col9:
+    notes = st.text_input('Notes')   
+    
 # get upc from the values above
 # Filter the DataFrame based on the selected values
 
@@ -64,6 +84,12 @@ filtered_df["Total"] = filtered_df["Total"].apply(lambda x: '${:,.2f}'.format(x)
 upc = filtered_df['UPC'].values
 descript = filtered_df['DESCRIPT'].values
 total1 = filtered_df["Total"] = filtered_df["Total"].values
+filtered_df['HangTags'] = ht
+filtered_df['CoBrand'] = cb
+filtered_df['Folding'] = fl
+filtered_df['NeckLabels'] = nl
+filtered_df['Notes'] = notes
+
 st.dataframe(filtered_df, hide_index=True, width=1300)
 df_concat = pd.concat([selected_row, filtered_df], axis=1, join='outer', ignore_index=True)
 df_new = pd.DataFrame(columns=filtered_df.columns)
