@@ -63,7 +63,7 @@ with col7:
 with col8:
     nl = st.selectbox('Neck Labels', (True, False))
  
- notes = st.text_input('Notes', value='')   
+notes = st.text_input('Notes', value='')   
     
 # get upc from the values above
 # Filter the DataFrame based on the selected values
