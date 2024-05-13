@@ -83,7 +83,7 @@ st.write(filtered_df)
 
 filtered_df['QTY'] = qty
 total = qty * filtered_df['MSRP']
-filtered_df["Total"] = total
+# filtered_df["Total"] = total
 filtered_df["Total"] = filtered_df["Total"].apply(lambda x: '${:,.2f}'.format(x))
 filtered_df['HangTags'] = ht
 filtered_df['CoBrand'] = cb
