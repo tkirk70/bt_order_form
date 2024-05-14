@@ -113,8 +113,8 @@ if st.button('Clear Order'):
     # Clear the input box after hitting enter
     get_data().clear()
 
-st.write(pd.DataFrame(get_data()))
-submit_df = pd.DataFrame(get_data())
+st.write(get_data())
+submit_df = get_data()
 # concatenate dataframes along the columns
 result = pd.concat([selected_row, submit_df], axis=1, join='outer')
 
