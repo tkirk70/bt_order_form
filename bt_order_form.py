@@ -103,7 +103,7 @@ st.dataframe(filtered_df, hide_index=True, width=1300)
     
 @st.cache(allow_output_mutation=True)
 def get_data():
-    return pd.DataFrame()
+    return []
 
 if st.button("Add Line Item"):
     get_data().append({'STYLE' : style, 'COLOR': color, 'SIZE' : size, 'DESCRIPT' : descript, 'UPC' : upc,
@@ -113,8 +113,8 @@ if st.button('Clear Order'):
     # Clear the input box after hitting enter
     get_data().clear()
 
-st.write(get_data())
-submit_df = get_data()
+st.write(pd.DataFrame(get_data()))
+submit_df = pd.DataFrame(get_data())
 # concatenate dataframes along the columns
 result = pd.concat([selected_row, submit_df], axis=1, join='outer')
 
