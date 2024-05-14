@@ -39,7 +39,7 @@ df_items = df_items.drop(['COLOR/SIZE/DESCRIPT'], axis=1)
 
 
 # order input dropdowns
-st.header('Current Line Item')
+st.header('Choose Style (SKU), Color and Size by selecting from list or typing')
 
 col1, col2, col3, col4 = st.columns(4)
 
