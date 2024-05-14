@@ -106,8 +106,8 @@ def get_data():
     return []
 
 if st.button("Add Line Item"):
-    get_data().append({'STYLE' : style, 'COLOR': color, 'SIZE' : size, 'DESCRIPT' : descript, 'UPC' : upc,
-                       'QTY' : qty, 'TOTAL' : total1, 'HangTags' : ht, 'CoBrand' : cb, 'Folding' :fl, 'NeckLabels' : nl, 'Notes' : notes})
+    get_data().append({'STYLE' : style, 'COLOR': color, 'SIZE' : size, 'DESCRIPT' : descript[0], 'UPC' : upc[0],
+                       'QTY' : qty, 'TOTAL' : total1[0], 'HangTags' : ht, 'CoBrand' : cb, 'Folding' :fl, 'NeckLabels' : nl, 'Notes' : notes})
     
 if st.button('Clear Order'):
     # Clear the input box after hitting enter
