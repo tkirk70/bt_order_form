@@ -55,7 +55,7 @@ with col3:
 with col4:
     qty = st.number_input("Quantity", 1)
     
-col5, col6, col7, col8 = st.columns(4)
+col5, col6, col7, col8, col9 = st.columns(5)
 
 with col5:
     ht = st.selectbox('Hang Tags', (False, True))
@@ -64,10 +64,13 @@ with col6:
     cb = st.selectbox('Co-Branding', (False, True))
     
 with col7:
-    fl = st.selectbox('Folding', (False, True))
+    fl = st.selectbox('Folding', ('Printer', 'Retail'))
     
 with col8:
     nl = st.selectbox('Neck Labels', (False, True))
+    
+with col9:
+    st.select_box('UPC Required', (False, True))
  
 notes = st.text_input('Notes', value='')   
     
