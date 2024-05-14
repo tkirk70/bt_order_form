@@ -70,7 +70,7 @@ with col8:
     nl = st.selectbox('Neck Labels', (False, True))
     
 with col9:
-    st.select_box('UPC Required', (False, True))
+    st.selectbox('UPC Required', (False, True))
  
 notes = st.text_input('Notes', value='')   
     
