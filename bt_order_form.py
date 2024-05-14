@@ -103,7 +103,7 @@ st.dataframe(filtered_df, hide_index=True, width=1300)
     
 @st.cache(allow_output_mutation=True)
 def get_data():
-    return pd.DataFrame
+    return pd.DataFrame()
 
 if st.button("Add Line Item"):
     get_data().append({'STYLE' : style, 'COLOR': color, 'SIZE' : size, 'DESCRIPT' : descript, 'UPC' : upc,
