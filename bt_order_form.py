@@ -97,7 +97,7 @@ df_concat = pd.concat([selected_row, filtered_df], axis=1, join='outer', ignore_
 df_new = pd.DataFrame(columns=filtered_df.columns)
     
 # shopping cart
-st.header('Current Order')
+st.header('Current Line Item')
 st.dataframe(selected_row, hide_index=True, width=1300)
 st.dataframe(filtered_df, hide_index=True, width=1300)
     
@@ -112,6 +112,8 @@ if st.button("Add Line Item"):
 if st.button('Clear Order'):
     # Clear the input box after hitting enter
     get_data().clear()
+
+st.header('Current Order')
 
 st.write(pd.DataFrame(get_data()))
 submit_df = pd.DataFrame(get_data())
