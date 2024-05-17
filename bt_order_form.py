@@ -150,6 +150,7 @@ from config import *
 submit_button = st.form.submit_button("Send Email")
 
 if submit_button:
+    password = input("Type your password and press enter:")
 
     # Create a MIME object
     msg = MIMEMultipart()
