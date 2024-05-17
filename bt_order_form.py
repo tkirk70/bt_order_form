@@ -122,6 +122,7 @@ st.write(pd.DataFrame(get_data()))
 submit_df = pd.DataFrame(get_data())
 # concatenate dataframes along the columns
 result = pd.concat([selected_row, submit_df], axis=1, join='outer')
+result.to_csv(f'order_details_{formatted_time}.csv')
 
 if st.button('Submit Order'):
     # Create a downloadable link for the DataFrame as a csv file
@@ -142,7 +143,12 @@ Adding send gmail section from streamlit site
 
 import streamlit as st
 import smtplib
+from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+from email import encoders
+
+from config import *
 
 # Taking inputs
 email_sender = st.text_input('From', value='kbtsales24@gmail.com')
@@ -154,13 +160,22 @@ password = st.text_input('Password', type="password")
 
 if st.button("Send Email"):
     try:
-        msg = MIMEText(body)
+        msg = MIMEMultipart()
         msg['From'] = email_sender
         msg['To'] = email_receiver
         msg['Subject'] = subject
         msg['Cc'] = cc
+        # Attach the CSV file
+        attachment_path = f'order_details_{formatted_time}.csv'
+        attachment = open(attachment_path, 'rb')
+        part = MIMEBase('application', 'octet-stream')
+        part.set_payload(attachment.read())
+        encoders.encode_base64(part)
+        part.add_header('Content-Disposition', f'attachment; filename="{attachment_path}"')
+        msg.attach(part)
+    
         cc_recipients = cc.split(',')
-
+        
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
         server.login(email_sender, password)
