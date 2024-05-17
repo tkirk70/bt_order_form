@@ -200,7 +200,7 @@ today = datetime.datetime.now()
 earliest_startdate = today.day + 1
 enddate = today.day + 15
 startdate = datetime.date(earliest_startdate)
-dec_31 = datetime.date(enddate)
+
 
 d = st.date_input(
     "Select your start and stop dates",
