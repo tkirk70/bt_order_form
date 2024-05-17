@@ -196,6 +196,20 @@ if st.button("Submit Order and Send Email"):
     except Exception as e:
         st.error(f"We ran into a problem : {e}")
 
+today = datetime.datetime.now()
+earliest_startdate = today.day + 1
+enddate = today.day + 15
+startdate = datetime.date(earliest_startdate)
+dec_31 = datetime.date(enddate)
+
+d = st.date_input(
+    "Select your start and stop dates",
+    (startdate, enddate),
+    format="MM.DD.YYYY",
+)
+d
+
+
 # Custom CSS style for the text
 custom_style = '<div style="text-align: right; font-size: 23px; font-style: italic;font-family: Arial;">✨ A TDS Application ✨</div>'
 
