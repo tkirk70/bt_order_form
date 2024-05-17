@@ -147,9 +147,9 @@ from email import encoders
 
 from config import *
 
-submit_button = st.form.submit_button("Send Email")
 
-if submit_button:
+
+if st.button('Send Email'):
     password = input("Type your password and press enter:")
 
     # Create a MIME object
