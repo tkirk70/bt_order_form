@@ -198,14 +198,16 @@ if st.button("Submit Order and Send Email"):
 
 today = datetime.datetime.now()
 next_day = today.day + 1
-jan_1 = datetime.date(next_day, 1, 1)
-dec_31 = datetime.date(next_day, 12, 31)
+year = today.year
+month = today.month
+earliest = datetime.date(year, month, next_day)
+latest = datetime.date(year, month, next_day)
 
 d = st.date_input(
     "Select your start and stop dates",
-    (jan_1, datetime.date(next_day, 1, 7)),
-    jan_1,
-    dec_31,
+    (earliest, latest),
+    today,
+    latest,
     format="MM.DD.YYYY",
 )
 d
