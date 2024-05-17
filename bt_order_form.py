@@ -159,11 +159,12 @@ if st.button("Send Email"):
         msg['To'] = email_receiver
         msg['Subject'] = subject
         msg['Cc'] = cc
+        cc_recipients = cc.split(',')
 
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
         server.login(email_sender, password)
-        server.sendmail(email_sender, [email_receiver + ',' + cc], msg.as_string())
+        server.sendmail(email_sender, [email_receiver] + cc_recipients, msg.as_string())
         server.quit()
 
         st.success('Email sent successfully! 🚀')
