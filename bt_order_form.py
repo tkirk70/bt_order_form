@@ -197,13 +197,15 @@ if st.button("Submit Order and Send Email"):
         st.error(f"We ran into a problem : {e}")
 
 today = datetime.datetime.now()
-startdate = today.day + 1
-enddate = today.day + 15
-
+next_day = today.day + 1
+jan_1 = datetime.date(next_day, 1, 1)
+dec_31 = datetime.date(next_day, 12, 31)
 
 d = st.date_input(
     "Select your start and stop dates",
-    (startdate, enddate),
+    (jan_1, datetime.date(next_day, 1, 7)),
+    jan_1,
+    dec_31,
     format="MM.DD.YYYY",
 )
 d
@@ -216,3 +218,8 @@ custom_style = '<div style="text-align: right; font-size: 23px; font-style: ital
 st.markdown(custom_style, unsafe_allow_html=True)
 
 # <div style="text-align: right; font-size: 20px; font-family: Arial; font-style: italic;">✨ A TDS Application ✨</div>
+
+
+# st.date_input(label, value="default_value_today", min_value=None, max_value=None,
+#               key=None, help=None, on_change=None, args=None, kwargs=None, *,
+#               format="YYYY/MM/DD", disabled=False, label_visibility="visible")
