@@ -152,7 +152,7 @@ from email import encoders
 from config import *
 
 # Taking inputs
-col10, col11, col12, col13 = st.columns(4)
+col10, col11, col12, col13, col14 = st.columns(5)
 
 with col10:
     email_sender = st.text_input('From', value='kbtsales24@gmail.com')
@@ -162,9 +162,11 @@ with col12:
     cc = st.text_input('Cc', value='tds@tcg3pl.com')
 with col13:
     subject = st.text_input('Subject', value=f'KBT order for {today}')
-    
+with col14:
+    password = st.text_input('Password', type="password") 
+       
 body = st.text_area('Body', value='Please create purchase order for URM.')
-password = st.text_input('Password', type="password") 
+
 
 if st.button("Send Email"):
     try:
