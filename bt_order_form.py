@@ -158,7 +158,7 @@ if st.button('Send Email'):
     msg['To'] = receiver
     msg['Subject'] = subject
     msg['Cc'] = cc
-    msg['Body'] = 'Hello, did this work?'
+    # msg['Body'] = 'Hello, did this work?'
     
     # # Attach the CSV file
     # attachment_path = f'order_details_{formatted_time}.csv'
