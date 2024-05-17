@@ -152,34 +152,34 @@ from config import *
 if st.button('Send Email'):
     password = input("Type your password and press enter:")
 
-    # Create a MIME object
-    msg = MIMEMultipart()
-    msg['From'] = sender
-    msg['To'] = receiver
-    msg['Subject'] = subject
-    msg['Cc'] = cc
+    # # Create a MIME object
+    # msg = MIMEMultipart()
+    # msg['From'] = sender
+    # msg['To'] = receiver
+    # msg['Subject'] = subject
+    # msg['Cc'] = cc
     
-    # Attach the CSV file
-    attachment_path = f'order_details_{formatted_time}.csv'
-    attachment = open(attachment_path, 'rb')
-    part = MIMEBase('application', 'octet-stream')
-    part.set_payload(attachment.read())
-    encoders.encode_base64(part)
-    part.add_header('Content-Disposition', f'attachment; filename="{attachment_path}"')
-    msg.attach(part)
+    # # Attach the CSV file
+    # attachment_path = f'order_details_{formatted_time}.csv'
+    # attachment = open(attachment_path, 'rb')
+    # part = MIMEBase('application', 'octet-stream')
+    # part.set_payload(attachment.read())
+    # encoders.encode_base64(part)
+    # part.add_header('Content-Disposition', f'attachment; filename="{attachment_path}"')
+    # msg.attach(part)
     
-    # Send the email
-    smtp_server = smtp_server
-    smtp_port = smtp_port
-    sender_email = sender
-    sender_password = password
+    # # Send the email
+    # smtp_server = smtp_server
+    # smtp_port = smtp_port
+    # sender_email = sender
+    # sender_password = password
     
-    with smtplib.SMTP(smtp_server, smtp_port) as server:
-        server.starttls()
-        server.login(sender_email, sender_password)
-        server.sendmail(sender_email, 'recipient@example.com', msg.as_string())
-        server.quit()
+    # with smtplib.SMTP(smtp_server, smtp_port) as server:
+    #     server.starttls()
+    #     server.login(sender_email, sender_password)
+    #     server.sendmail(sender_email, 'recipient@example.com', msg.as_string())
+    #     server.quit()
     
-    st.write('Email sent successfully!')
+    # st.write('Email sent successfully!')
 
 
