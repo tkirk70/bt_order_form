@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import base64
-import datetime
+from datetime import datetime, timedelta
 
 now = datetime.datetime.now()
 formatted_time = now.strftime("%Y%m%d%H%M%S")
@@ -201,7 +201,7 @@ next_day = today.day + 1
 year = today.year
 month = today.month
 earliest = datetime.date(year, month, next_day)
-latest = datetime.date(year, month, next_day + 15)
+latest = datetime.date(year, month, next_day) + timedelta(days = 15)
 dec31 = datetime.date(year, 12, 31)
 
 d = st.date_input(
