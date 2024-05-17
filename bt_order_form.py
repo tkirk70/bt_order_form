@@ -6,7 +6,7 @@ import datetime
 now = datetime.datetime.now()
 formatted_time = now.strftime("%Y%m%d%H%M%S")
 # print(formatted_time)
-
+today = datetime.date.today()
 
 # set layout
 st.set_page_config(page_title=None, page_icon=None, layout="wide")
@@ -145,9 +145,10 @@ import smtplib
 from email.mime.text import MIMEText
 
 # Taking inputs
-email_sender = st.text_input('From')
-email_receiver = st.text_input('To')
-subject = st.text_input('Subject')
+email_sender = st.text_input('From', value='kbtsales24@gmail.com')
+email_receiver = st.text_input('To', value='orders@tcg3pl.com')
+cc = st.text_input('Cc', value='tds@tcg3pl.com')
+subject = st.text_input('Subject', value=f'KBT order for {today}')
 body = st.text_area('Body')
 password = st.text_input('Password', type="password") 
 
