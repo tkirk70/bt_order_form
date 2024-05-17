@@ -197,9 +197,8 @@ if st.button("Submit Order and Send Email"):
         st.error(f"We ran into a problem : {e}")
 
 today = datetime.datetime.now()
-earliest_startdate = today.day + 1
+startdate = today.day + 1
 enddate = today.day + 15
-startdate = datetime.date(earliest_startdate)
 
 
 d = st.date_input(
