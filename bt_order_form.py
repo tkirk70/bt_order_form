@@ -3,10 +3,10 @@ import pandas as pd
 import base64
 from datetime import datetime, timedelta
 
-now = datetime.datetime.now()
+now = datetime.now()
 formatted_time = now.strftime("%Y%m%d%H%M%S")
 # print(formatted_time)
-today = datetime.date.today()
+today = date.today()
 
 # set layout
 st.set_page_config(page_title=None, page_icon=None, layout="wide")
@@ -196,13 +196,13 @@ if st.button("Submit Order and Send Email"):
     except Exception as e:
         st.error(f"We ran into a problem : {e}")
 
-today = datetime.datetime.now()
+today = datetime.now()
 next_day = today.day + 1
 year = today.year
 month = today.month
-earliest = datetime.date(year, month, next_day)
-latest = datetime.date(year, month, next_day) + timedelta(days = 15)
-dec31 = datetime.date(year, 12, 31)
+earliest = date(year, month, next_day)
+latest = date(year, month, next_day) + timedelta(days = 15)
+dec31 = date(year, 12, 31)
 
 d = st.date_input(
     "Select your start and stop dates",
