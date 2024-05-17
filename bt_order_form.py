@@ -201,13 +201,14 @@ next_day = today.day + 1
 year = today.year
 month = today.month
 earliest = datetime.date(year, month, next_day)
-latest = datetime.date(year, month, next_day + 7) 
+latest = datetime.date(year, month, next_day + 7)
+dec31 = datetime.date(year, 12, 31)
 
 d = st.date_input(
     "Select your start and stop dates",
     (earliest, latest),
     today,
-    latest,
+    dec31,
     format="MM.DD.YYYY",
 )
 d
