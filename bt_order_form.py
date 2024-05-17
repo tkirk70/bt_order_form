@@ -152,10 +152,17 @@ from email import encoders
 from config import *
 
 # Taking inputs
-email_sender = st.text_input('From', value='kbtsales24@gmail.com')
-email_receiver = st.text_input('To', value='orders@tcg3pl.com')
-cc = st.text_input('Cc', value='tds@tcg3pl.com')
-subject = st.text_input('Subject', value=f'KBT order for {today}')
+col10, col11, col12, col13 = st.columns(4)
+
+with col10:
+    email_sender = st.text_input('From', value='kbtsales24@gmail.com')
+with col11:
+    email_receiver = st.text_input('To', value='orders@tcg3pl.com')
+with col12:
+    cc = st.text_input('Cc', value='tds@tcg3pl.com')
+with col13:
+    subject = st.text_input('Subject', value=f'KBT order for {today}')
+    
 body = st.text_area('Body', value='Please create purchase order for URM.')
 password = st.text_input('Password', type="password") 
 
