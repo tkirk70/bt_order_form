@@ -70,7 +70,7 @@ with col8:
     nl = st.selectbox('Neck Labels', (False, True))
     
 with col9:
-    st.selectbox('UPC Required', (False, True))
+    ureq = st.selectbox('UPC Required', (False, True))
  
 notes = st.text_input('Notes', value='')   
     
@@ -93,6 +93,7 @@ filtered_df['HangTags'] = ht
 filtered_df['CoBrand'] = cb
 filtered_df['Folding'] = fl
 filtered_df['NeckLabels'] = nl
+filtered_df['UPCRequired'] = ureq
 filtered_df['Notes'] = notes
 
 st.dataframe(filtered_df, hide_index=True, width=1300)
@@ -110,7 +111,7 @@ def get_data():
 
 if st.button("Add Line Item"):
     get_data().append({'STYLE' : style, 'COLOR': color, 'SIZE' : size, 'DESCRIPT' : descript[0], 'UPC' : upc[0],
-                       'QTY' : qty, 'TOTAL' : total1[0], 'HangTags' : ht, 'CoBrand' : cb, 'Folding' :fl, 'NeckLabels' : nl, 'Notes' : notes})
+                       'QTY' : qty, 'TOTAL' : total1[0], 'HangTags' : ht, 'CoBrand' : cb, 'Folding' :fl, 'NeckLabels' : nl, 'UPCRequired' : ureq,  'Notes' : notes})
     
 if st.button('Clear Order'):
     # Clear the input box after hitting enter
@@ -122,7 +123,7 @@ st.write(pd.DataFrame(get_data()))
 submit_df = pd.DataFrame(get_data())
 # concatenate dataframes along the columns
 result = pd.concat([selected_row, submit_df], axis=1, join='outer')
-result.to_csv(f'order_details_{formatted_time}.csv')
+result.to_csv(f'order_details_{formatted_time}.csv', index=None)
 
 if st.button('Submit Order'):
     # Create a downloadable link for the DataFrame as a csv file
