@@ -158,6 +158,7 @@ if st.button("Send Email"):
         msg['From'] = email_sender
         msg['To'] = email_receiver
         msg['Subject'] = subject
+        msg['Cc'] = cc
 
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
