@@ -148,9 +148,9 @@ from email import encoders
 from config import *
 
 
-
+password = st.text_input("Type your password and press enter:")
 if st.button('Send Email'):
-    password = st.text_input("Type your password and press enter:")
+    
 
     # Create a MIME object
     msg = MIMEMultipart()
