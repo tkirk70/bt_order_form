@@ -130,3 +130,55 @@ if st.button('Submit Order'):
     href = f'<a href="data:file/csv;base64,{b64}" download="order_details_{formatted_time}.csv">Download Order Form</a>'
     st.markdown(href, unsafe_allow_html=True)
     # Write code to convert df to downloadable excel file.
+    
+    
+##################################################################
+
+'''
+
+Adding send gmail section
+
+'''
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+from email import encoders
+
+from config import *
+
+submit_button = st.form.submit_button("Send Email")
+
+if submit_button:
+
+    # Create a MIME object
+    msg = MIMEMultipart()
+    msg['From'] = sender
+    msg['To'] = receiver
+    msg['Subject'] = subject
+    msg['Cc'] = cc
+    
+    # Attach the CSV file
+    attachment_path = f'order_details_{formatted_time}.csv'
+    attachment = open(attachment_path, 'rb')
+    part = MIMEBase('application', 'octet-stream')
+    part.set_payload(attachment.read())
+    encoders.encode_base64(part)
+    part.add_header('Content-Disposition', f'attachment; filename="{attachment_path}"')
+    msg.attach(part)
+    
+    # Send the email
+    smtp_server = smtp_server
+    smtp_port = smtp_port
+    sender_email = sender
+    sender_password = password
+    
+    with smtplib.SMTP(smtp_server, smtp_port) as server:
+        server.starttls()
+        server.login(sender_email, sender_password)
+        server.sendmail(sender_email, 'recipient@example.com', msg.as_string())
+        server.quit()
+    
+    st.write('Email sent successfully!')
+
+
