@@ -96,7 +96,7 @@ filtered_df['NeckLabels'] = nl
 filtered_df['UPCRequired'] = ureq
 filtered_df['Notes'] = notes
 
-st.dataframe(filtered_df, hide_index=True, width=1300)
+# st.dataframe(filtered_df, hide_index=True, width=1300)
 df_concat = pd.concat([selected_row, filtered_df], axis=1, join='outer', ignore_index=True)
 df_new = pd.DataFrame(columns=filtered_df.columns)
     
@@ -125,13 +125,13 @@ submit_df = pd.DataFrame(get_data())
 result = pd.concat([selected_row, submit_df], axis=1, join='outer')
 result.to_csv(f'order_details_{formatted_time}.csv', index=None)
 
-if st.button('Submit Order'):
-    # Create a downloadable link for the DataFrame as a csv file
-    csv = result.to_csv(index=False)
-    b64 = base64.b64encode(csv.encode()).decode()
-    href = f'<a href="data:file/csv;base64,{b64}" download="order_details_{formatted_time}.csv">Download Order Form</a>'
-    st.markdown(href, unsafe_allow_html=True)
-    # Write code to convert df to downloadable excel file.
+# if st.button('Submit Order'):
+#     # Create a downloadable link for the DataFrame as a csv file
+#     csv = result.to_csv(index=False)
+#     b64 = base64.b64encode(csv.encode()).decode()
+#     href = f'<a href="data:file/csv;base64,{b64}" download="order_details_{formatted_time}.csv">Download Order Form</a>'
+#     st.markdown(href, unsafe_allow_html=True)
+#     # Write code to convert df to downloadable excel file.
     
     
 ##################################################################
@@ -168,7 +168,7 @@ with col14:
 body = st.text_area('Body', value='Please create purchase order for URM.')
 
 
-if st.button("Send Email"):
+if st.button("Submit Order and Send Email"):
     try:
         msg = MIMEMultipart()
         msg['From'] = email_sender
