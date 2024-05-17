@@ -158,15 +158,16 @@ if st.button('Send Email'):
     msg['To'] = receiver
     msg['Subject'] = subject
     msg['Cc'] = cc
+    msg['Body'] = 'Hello, did this work?'
     
-    # Attach the CSV file
-    attachment_path = f'order_details_{formatted_time}.csv'
-    attachment = open(attachment_path, 'rb')
-    part = MIMEBase('application', 'octet-stream')
-    part.set_payload(attachment.read())
-    encoders.encode_base64(part)
-    part.add_header('Content-Disposition', f'attachment; filename="{attachment_path}"')
-    msg.attach(part)
+    # # Attach the CSV file
+    # attachment_path = f'order_details_{formatted_time}.csv'
+    # attachment = open(attachment_path, 'rb')
+    # part = MIMEBase('application', 'octet-stream')
+    # part.set_payload(attachment.read())
+    # encoders.encode_base64(part)
+    # part.add_header('Content-Disposition', f'attachment; filename="{attachment_path}"')
+    # msg.attach(part)
     
     # Send the email
     smtp_server = smtp_server
