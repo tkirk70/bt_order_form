@@ -165,7 +165,23 @@ with col13:
 with col14:
     password = st.text_input('Password', type="password") 
        
-body = st.text_area('Body', value='Please create purchase order for URM.')
+body = st.text_area('Body', value=f'Please create purchase order for URM.\n\nStart and stop dates{d}')
+
+today = datetime.datetime.now()
+next_day = today.day + 1
+year = today.year
+month = today.month
+earliest = datetime.date(year, month, next_day)
+latest = datetime.date(year, month, next_day) + datetime.timedelta(days = 15)
+dec31 = datetime.date(year, 12, 31)
+
+d = st.date_input(
+    "Select your start and stop dates",
+    (earliest, latest),
+    earliest,
+    dec31,
+    format="MM.DD.YYYY",
+)
 
 
 if st.button("Submit Order and Send Email"):
@@ -195,23 +211,6 @@ if st.button("Submit Order and Send Email"):
         st.success('Email sent successfully! 🚀')
     except Exception as e:
         st.error(f"We ran into a problem : {e}")
-
-today = datetime.datetime.now()
-next_day = today.day + 1
-year = today.year
-month = today.month
-earliest = datetime.date(year, month, next_day)
-latest = datetime.date(year, month, next_day) + datetime.timedelta(days = 15)
-dec31 = datetime.date(year, 12, 31)
-
-d = st.date_input(
-    "Select your start and stop dates",
-    (earliest, latest),
-    earliest,
-    dec31,
-    format="MM.DD.YYYY",
-)
-d
 
 
 # Custom CSS style for the text
