@@ -138,7 +138,7 @@ result.to_csv(f'order_details_{formatted_time}.csv', index=None)
 
 '''
 
-Adding send gmail section from streamlit site
+You can overwrite all except From email address
 
 '''
 
