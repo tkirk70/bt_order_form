@@ -163,7 +163,7 @@ if st.button("Send Email"):
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
         server.login(email_sender, password)
-        server.sendmail(email_sender, email_receiver, msg.as_string())
+        server.sendmail(email_sender, [email_receiver] + cc.spilt(','), msg.as_string())
         server.quit()
 
         st.success('Email sent successfully! 🚀')
