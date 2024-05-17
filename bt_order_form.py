@@ -165,7 +165,7 @@ with col13:
 with col14:
     password = st.text_input('Password', type="password") 
        
-body = st.text_area('Body', value=f'Please create purchase order for URM.\n\nStart and stop dates{d}')
+
 
 today = datetime.datetime.now()
 next_day = today.day + 1
@@ -183,10 +183,11 @@ d = st.date_input(
     format="MM.DD.YYYY",
 )
 
+body = st.text_area('Body', value=f'Please create purchase order for URM.\n\nStart and stop dates{d}')
 
 if st.button("Submit Order and Send Email"):
     try:
-        msg = MIMEMultipart()
+        msg = MIMEMultipart(body)
         msg['From'] = email_sender
         msg['To'] = email_receiver
         msg['Subject'] = subject
