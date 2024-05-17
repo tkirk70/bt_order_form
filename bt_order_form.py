@@ -3,7 +3,7 @@ import pandas as pd
 import base64
 import datetime
 
-now = datetime.now()
+now = datetime.datetime.now()
 formatted_time = now.strftime("%Y%m%d%H%M%S")
 # print(formatted_time)
 today = datetime.date.today()
