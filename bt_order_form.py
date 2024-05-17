@@ -149,7 +149,7 @@ email_sender = st.text_input('From', value='kbtsales24@gmail.com')
 email_receiver = st.text_input('To', value='orders@tcg3pl.com')
 cc = st.text_input('Cc', value='tds@tcg3pl.com')
 subject = st.text_input('Subject', value=f'KBT order for {today}')
-body = st.text_area('Body')
+body = st.text_area('Body', value='Please create purchase order for URM')
 password = st.text_input('Password', type="password") 
 
 if st.button("Send Email"):
