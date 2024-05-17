@@ -2,7 +2,7 @@
 
 sender = 'kbtsales24@gmail.com'
 receiver = 'orders@tcg3pl.com'
-smtp_server = 'smtp.gamil.com'
+smtp_server = 'smtp.gmail.com'
 smtp_port = 587
 email_message = 'Please fulfill order'
 subject = 'KBT Order for URM'
