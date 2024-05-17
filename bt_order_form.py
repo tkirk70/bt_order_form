@@ -197,7 +197,7 @@ if st.button("Submit Order and Send Email"):
         st.error(f"We ran into a problem : {e}")
 
 # Custom CSS style for the text
-custom_style = '<div style="text-align: right; font-size: 20px; font-style: bold;">✨ A TDS Application ✨</div>'
+custom_style = '<div style="text-align: right; font-size: 20px; font-style: italic;">✨ A TDS Application ✨</div>'
 
 # Render the styled text using st.markdown
 st.markdown(custom_style, unsafe_allow_html=True)
