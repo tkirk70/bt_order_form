@@ -196,7 +196,7 @@ if st.button("Submit Order and Send Email"):
     except Exception as e:
         st.error(f"We ran into a problem : {e}")
 
-today = datetime.now()
+today = datetime.datetime.now()
 next_day = today.day + 1
 year = today.year
 month = today.month
