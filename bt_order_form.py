@@ -182,8 +182,8 @@ d = st.date_input(
     dec31,
     format="MM.DD.YYYY",
 )
-d = d.astype(str)
-body = st.text_area('Body', value=f'Please create purchase order for URM.\n\nStart and stop dates {d.strftime("%m-%d-%Y")}')
+
+body = st.text_area('Body', value=f'Please create purchase order for URM.\n\nStart and stop dates {d}')
 
 if st.button("Submit Order and Send Email"):
     try:
