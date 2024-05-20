@@ -182,9 +182,9 @@ d = st.date_input(
     dec31,
     format="MM.DD.YYYY",
 )
-
+st.write(d)
 # Convert the date to a more readable format
-formatted_dateD = d.strptime("%m/%d/%Y")
+formatted_dateD = d.strftime("%m/%d/%Y")
 
 
 body = st.text_area('Body', value=f'Please create purchase order for URM.\n\nStart and stop dates {d}\n\n{formatted_dateD}')
