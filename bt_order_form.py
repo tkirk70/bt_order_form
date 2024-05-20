@@ -187,7 +187,7 @@ body = st.text_area('Body', value=f'Please create purchase order for URM.\n\nSta
 
 if st.button("Submit Order and Send Email"):
     try:
-        msg = MIMEMultipart(body)
+        msg = MIMEMultipart()
         msg['From'] = email_sender
         msg['To'] = email_receiver
         msg['Subject'] = subject

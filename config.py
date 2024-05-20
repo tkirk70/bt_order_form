@@ -4,6 +4,6 @@ sender = 'kbtsales24@gmail.com'
 receiver = 'orders@tcg3pl.com'
 smtp_server = 'smtp.gmail.com'
 smtp_port = 587
-email_message = 'Please fulfill order'
+email_message = 'Not sure what is happening here.'
 subject = 'KBT Order for URM'
 cc = 'tds@tcg3pl.com, timothypatrickkirk@gmail.com'
