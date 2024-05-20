@@ -182,8 +182,8 @@ d = st.date_input(
     dec31,
     format="MM.DD.YYYY",
 )
-st.write(d[0])
-st.write(d[1])
+st.write(d[0].strftime("%m/%d/%Y"))
+st.write(d[1].strftime("%m/%d/%Y"))
 # Convert the date to a more readable format
 formatted_dateD = d.strftime("%m/%d/%Y")
 
