@@ -168,26 +168,30 @@ with col14:
 
 
 today = datetime.datetime.now()
-next_day = today + datetime.timedelta(days=1)
-month = today.month
-year = today.year
-earliest = next_day
-latest = next_day + datetime.timedelta(days = 14)
-dec31 = datetime.date(year, 12, 31)
+tomorrow = today + datetime.timedelta(days=1)
+fourteen_days_hence = tomorrow + datetime.timedelta(days = 14)
+one_year_hence = today + datetime.timedelta(days=365)
 
-d = st.date_input(
+# Get user input for start and stop dates
+selected_dates = st.date_input(
     "Select your start and stop dates",
-    (earliest, latest),
-    # earliest,
-    # dec31,
-    format="MM.DD.YYYY",
+    value=(tomorrow, fourteen_days_hence),  # Set default range
+    min_value=tomorrow,  # Minimum allowed date (tomorrow)
+    max_value=one_year_hence,  # Maximum allowed date (one year from now)
+    format="YYYY/MM/DD",
 )
+
+# Extract the selected start and stop dates
+start_date, stop_date = selected_dates
+# Convert dates to more readable formats
+formatted_start_date = start_date.strftime("%Y/%m/%d")
+formatted_stop_date = stop_date.strftime("%Y/%m/%d")
 # st.write(d[0].strftime("%m/%d/%Y"))
 # st.write(d[1].strftime("%m/%d/%Y"))
 # Convert the date to a more readable format
 
 
-body = st.text_area('Body', value=f'Please create purchase order for URM.\n\nStart and stop dates {d[0].strftime("%m/%d/%Y")} - {d[1].strftime("%m/%d/%Y")}')
+body = st.text_area('Body', value=f'Please create purchase order for URM.\n\nStart and stop dates {formatted_start_date} - {formatted_stop_date}')
 
 if st.button("Submit Order and Send Email"):
     try:
