@@ -178,8 +178,8 @@ dec31 = datetime.date(year, 12, 31)
 d = st.date_input(
     "Select your start and stop dates",
     (earliest, latest),
-    earliest,
-    dec31,
+    # earliest,
+    # dec31,
     format="MM.DD.YYYY",
 )
 # st.write(d[0].strftime("%m/%d/%Y"))
