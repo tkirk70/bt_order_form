@@ -168,11 +168,11 @@ with col14:
 
 
 today = datetime.datetime.now()
-next_day = today.day + 1
-year = today.year
+next_day = today + datetime.timedelta(days=1)
 month = today.month
-earliest = datetime.date(year, month, next_day)
-latest = datetime.date(year, month, next_day) + datetime.timedelta(days = 15)
+year = today.year
+earliest = next_day
+latest = next_day + datetime.timedelta(days = 14)
 dec31 = datetime.date(year, 12, 31)
 
 d = st.date_input(
