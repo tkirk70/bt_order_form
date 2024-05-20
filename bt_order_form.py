@@ -200,6 +200,9 @@ if st.button("Submit Order and Send Email"):
         encoders.encode_base64(part)
         part.add_header('Content-Disposition', f'attachment; filename="{attachment_path}"')
         msg.attach(part)
+        
+        # Attach the email body text
+        msg.attach(MIMEText(body, 'plain'))
     
         cc_recipients = cc.split(',')
         
