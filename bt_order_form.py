@@ -183,7 +183,11 @@ d = st.date_input(
     format="MM.DD.YYYY",
 )
 
-body = st.text_area('Body', value=f'Please create purchase order for URM.\n\nStart and stop dates {d}')
+# Convert the date to a more readable format
+formatted_dateD = d.strftime("%m/%d/%Y")
+
+
+body = st.text_area('Body', value=f'Please create purchase order for URM.\n\nStart and stop dates {d}\n\n{formatted_dateD}')
 
 if st.button("Submit Order and Send Email"):
     try:
